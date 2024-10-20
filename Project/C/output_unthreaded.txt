@@ -1,0 +1,6 @@
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 7.144513 ms
+End Unthreaded Test

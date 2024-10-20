@@ -1,0 +1,150 @@
+======================================
+              Run 1                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 9.776117 ms
+End Unthreaded Test
+
+======================================
+              Run 2                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 8.907106 ms
+End Unthreaded Test
+
+======================================
+              Run 3                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 9.475113 ms
+End Unthreaded Test
+
+======================================
+              Run 4                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 9.036108 ms
+End Unthreaded Test
+
+======================================
+              Run 5                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 9.363112 ms
+End Unthreaded Test
+
+======================================
+              Run 6                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 9.102109 ms
+End Unthreaded Test
+
+======================================
+              Run 7                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 9.369112 ms
+End Unthreaded Test
+
+======================================
+              Run 8                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 8.831106 ms
+End Unthreaded Test
+
+======================================
+              Run 9                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 8.882106 ms
+End Unthreaded Test
+
+======================================
+              Run 10                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 8.955107 ms
+End Unthreaded Test
+
+======================================
+              Run 11                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 9.392112 ms
+End Unthreaded Test
+
+======================================
+              Run 12                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 8.752105 ms
+End Unthreaded Test
+
+======================================
+              Run 13                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 8.222098 ms
+End Unthreaded Test
+
+======================================
+              Run 14                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 28.461340 ms
+End Unthreaded Test
+
+======================================
+              Run 15                 
+======================================
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 19.343231 ms
+End Unthreaded Test
+
