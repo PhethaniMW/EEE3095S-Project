@@ -1,7 +1,7 @@
 .RECIPEPREFIX +=
 
 CC = arm-linux-gnueabihf-g++
-OPTFLAGS = -O3 -march=armv6 -mfpu=vfp -mfloat-abi=hard -ffast-math
+OPTFLAGS = -march=armv6 -mfpu=vfp -mfloat-abi=hard -ffast-math -mfp16-format=ieee -O2
 CFLAGS = $(OPTFLAGS) -lm -lrt
 INCLUDE = -ITools
 
