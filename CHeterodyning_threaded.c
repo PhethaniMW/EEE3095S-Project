@@ -1,56 +1,28 @@
-#include "CHeterodyning_threaded.h"
+#include "CHeterodyning.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <omp.h> // Include OpenMP for multi-threading
 
-float result [SAMPLE_COUNT];
+extern float data[SAMPLE_COUNT];
+extern float carrier[SAMPLE_COUNT];
+float result[SAMPLE_COUNT];
 
-// This is each thread's "main" function.  It receives a unique ID
-void* Thread_Main(void* Parameter){
-    int ID = *((int*)Parameter);
-    //tic();
-    int y;
-    //Divide up array into number of threads
-    for(y = ID*(SAMPLE_COUNT/Thread_Count); y < (ID+1)*(SAMPLE_COUNT/Thread_Count); y++){
-        result[y]=0;
-        result[y] += carrier[y]*data[y];
+int main(int argc, char** argv) {
+    printf("Running Optimized Test with Multi-Threading\n");
+    printf("Precision sizeof %ld\n", sizeof(float));
+    printf("Total amount of samples: %ld\n", sizeof(data) / sizeof(data[0]));
+
+    tic(); // Start the timer
+
+    // Parallelize the loop using OpenMP for multi-threading
+    #pragma omp parallel for
+    for (int i = 0; i < SAMPLE_COUNT; i++) {
+        result[i] = data[i] * carrier[i];
     }
+
+    double t = toc(); // Stop the timer
+    printf("Time: %lf ms\n", t / 1e-3);
+    printf("End Optimized Test\n");
+
     return 0;
 }
-
-
-// Point of entry into program
-int main(int argc, char** argv){
-    int j;
-    // Initialise everything that requires initialisation
-    tic();
-    // Spawn threads...
-    int       Thread_ID[Thread_Count]; // Structure to keep the thread ID
-    pthread_t Thread   [Thread_Count]; // pThreads structure for thread admin
-
-    for(j = 0; j < Thread_Count; j++){ //spawn threads
-        Thread_ID[j] = j;
-        pthread_create(Thread+j, 0, Thread_Main, Thread_ID+j);
-    }
-
-    // Printing stuff is a critical section...
-    pthread_mutex_lock(&Mutex);
-    printf("Threads created :-)\n");
-    pthread_mutex_unlock(&Mutex);
-
-    tic();
-    // Wait for threads to finish
-    for(j = 0; j < Thread_Count; j++){
-        if(pthread_join(Thread[j], 0)){
-            pthread_mutex_lock(&Mutex);
-            printf("Problem joining thread %d\n", j);
-            pthread_mutex_unlock(&Mutex);
-        }
-    }
-
-  // No more active threads, so no more critical sections required
-
-  printf("All threads have quit\n");
-  printf("Time taken for threads to run = %lg ms\n", toc()/1e-3);
-
-  return 0;
-}
-//------------------------------------------------------------------------------
-
