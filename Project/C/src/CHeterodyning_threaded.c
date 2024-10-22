@@ -3,25 +3,32 @@
 #include <stdlib.h>
 #include <omp.h> // Include OpenMP for multi-threading
 
+// Define these variables elsewhere or include a header
 extern float data[SAMPLE_COUNT];
 extern float carrier[SAMPLE_COUNT];
 float result[SAMPLE_COUNT];
 
 int main(int argc, char** argv) {
     printf("Running Optimized Test with Multi-Threading\n");
-    printf("Precision sizeof %ld\n", sizeof(float));
-    printf("Total amount of samples: %ld\n", sizeof(data) / sizeof(data[0]));
+    printf("Precision sizeof %zu\n", sizeof(float));
+    printf("Total amount of samples: %zu\n", SAMPLE_COUNT);
 
-    tic(); // Start the timer
+    // Set the number of threads - adjust based on your system
+    int num_threads = 4;  // Adjust based on the number of cores on your machine
+    omp_set_num_threads(num_threads);
 
-    // Parallelize the loop using OpenMP for multi-threading
-    #pragma omp parallel for
+    // Start the timer
+    tic();
+
+    // Efficiently parallelize the loop using OpenMP
+    #pragma omp parallel for schedule(static)
     for (int i = 0; i < SAMPLE_COUNT; i++) {
         result[i] = data[i] * carrier[i];
     }
 
-    double t = toc(); // Stop the timer
-    printf("Time: %lf ms\n", t / 1e-3);
+    // Stop the timer
+    double t = toc();
+    printf("Time: %lf ms\n", t);
     printf("End Optimized Test\n");
 
     return 0;
