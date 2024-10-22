@@ -1,14 +1,14 @@
 .RECIPEPREFIX +=
-
 CC = arm-linux-gnueabihf-g++
 OPTFLAGS = -march=armv6 -mfpu=vfp -mfloat-abi=hard -ffast-math -mfp16-format=ieee -O2
 CFLAGS = $(OPTFLAGS) -lm -lrt
 INCLUDE = -ITools
-
 PROG = bin/*
 OBJS = obj/*
 
-default:
+default: standard threaded
+
+standard:
     mkdir -p bin obj
     $(CC) $(INCLUDE) $(CFLAGS) -c src/CHeterodyning.c -o obj/CHeterodyning.o
     $(CC) $(INCLUDE) $(CFLAGS) -c Tools/Timer.cpp -o obj/Timer.o

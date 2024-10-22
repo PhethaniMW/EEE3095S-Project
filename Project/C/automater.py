@@ -110,18 +110,13 @@ def main():
         print(f"- All times (ms): {', '.join(f'{t:.4f}' for t in unthreaded_times)}")
         if unthreaded_avg is not None:
             print(f"- Average of last 5 runs: {unthreaded_avg:.4f} ms")
-    else:
-        print("\nNo valid unthreaded results")
     
-    if threaded_times:
         threaded_avg = calculate_average_last_five(threaded_times)
         print(f"\nThreaded Version:")
         print(f"- All times (ms): {', '.join(f'{t:.4f}' for t in threaded_times)}")
         if threaded_avg is not None:
             print(f"- Average of last 5 runs: {threaded_avg:.4f} ms")
-    else:
-        print("\nNo valid threaded results")
-    
+            
     # Compare if we have both results
     if unthreaded_times and threaded_times:
         unthreaded_avg = calculate_average_last_five(unthreaded_times)
